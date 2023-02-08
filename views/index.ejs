@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<!-- Partials -->
+<%- include('./Partials/head.ejs') %>
+
+    <body>
+        <!-- <nav>
+        <div class="site-title">
+            <a href="/">
+                <h1>Plato's Blog</h1>
+            </a>
+            <p>A new plato site</p>
+        </div>
+        <ul>
+            <li><a href="/"> Blogs </a></li>
+            <li><a href="/about">About</a> </li>
+            <li><a href="/blogs/create">New blog</a> </li>
+        </ul>
+    </nav> -->
+
+        <!-- Partials -->
+        <%- include('./Partials/nav.ejs') %>
+
+            <div class="blogs content">
+                <h2>All Blogs</h2>
+
+                <% if(blogs.length> 0) { %>
+                    <% blogs.forEach(blog=> { %>
+                        <a class="single" href="/blogs/<%= blog._id %> ">
+                            <h3 class="title">
+                                <%= blog.title %>
+                            </h3>
+                            <p class="snippet">
+                                <%= blog.snippet %>
+                            </p>
+                        </a>
+                        <% }) %>
+                            <% } else { %>
+                                <p>Plato is in the cave, No blog right now.... :)</p>
+                                <% }%>
+            </div>
+
+            <%- include('./Partials/footer.ejs') %>
+    </body>
+
+</html>
